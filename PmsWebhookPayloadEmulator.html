@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Plex Media Server Webhook Payload Emulator</title>
+      <meta charset="utf-8">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>		
+         $(document).ready(function() {
+            setEvent('media.play');
+
+            $('#payloadSendButton').click(function() {
+               plexJson = $('#plexJson').val();
+
+               ajaxReturn = $.ajax({
+                  type: "POST",
+                  url: "PlexHue.php",
+                  data: ({payload: plexJson}),
+                  success: function() {
+                     $('#payloadSentSuccess').show().delay(5000).fadeOut();
+                     $('#payloadSentFailed').hide();
+                  },
+                  error: function() {
+                     $('#payloadSentSuccess').hide();
+                     $('#payloadSentFailed').show().delay(5000).fadeOut();
+                  }
+               });
+            });
+
+            $('#playerName').keyup(function() {
+              		setPlayerName($('#playerName').val());
+            });
+         });
+
+         function setPlayerName(playerName) {
+               payload =  $('#plexJson').val();
+               json = JSON.parse(payload);
+               json.Player.title = playerName
+               payload = JSON.stringify(json, undefined, 4);
+            
+               $('#plexJson').val(payload);	
+               $('#playerName').val(playerName);
+         }
+			
+			function setEvent(newEvent) {
+				payload =  $('#plexJson').val();
+				json = JSON.parse(payload);
+				json.event = newEvent;
+				payload = JSON.stringify(json, undefined, 4);
+            
+            $('#plexJson').val(payload);				
+			}
+			
+		</script>
+	</head>
+	<body>
+	<h1>Plex Media Server Webhook Payload Emulator</h1>	
+	<textarea id="plexJson" style="width:1050px;height:660px;font-size:9pt;">{  
+	"event": "media.play",
+	"user": true,
+	"owner": true,
+	"Account": {
+	  "id": 1,
+	  "thumb": "https://plex.tv/users/1022b120ffbaa/avatar?c=1465525047",
+	  "title": "elan"
+	},
+	"Server": {
+	  "title": "Office",
+	  "uuid": "54664a3d8acc39983675640ec9ce00b70af9cc36"
+	},
+	"Player": {
+	  "local": true,
+	  "publicAddress": "200.200.200.200",
+	  "title": "Living",
+	  "uuid": "r6yfkdnfggbh2bdnvkffwbms"
+	},
+	"Metadata": {
+	  "librarySectionType": "movie",
+	  "ratingKey": "1936545",
+	  "key": "/library/metadata/1936545",
+	  "parentRatingKey": "1936544",
+	  "grandparentRatingKey": "1936543",
+	  "guid": "com.plexapp.agents.plexmusic://gracenote/track/7572499-91016293BE6BF7F1AB2F848F736E74E5/7572500-3CBAE310D4F3E66C285E104A1458B272?lang=en",
+	  "librarySectionID": 1224,
+	  "type": "track",
+	  "title": "Walt Disney Pictures",
+	  "grandparentKey": "/library/metadata/1936543",
+	  "parentKey": "/library/metadata/1936544",
+	  "grandparentTitle": "Stephen Stills",
+	  "parentTitle": "Stephen Stills",
+	  "summary": "",
+	  "index": 1,
+	  "parentIndex": 1,
+	  "ratingCount": 6794,
+	  "thumb": "/library/metadata/1936544/thumb/1432897518",
+	  "art": "/library/metadata/1936543/art/1485951497",
+	  "parentThumb": "/library/metadata/1936544/thumb/1432897518",
+	  "grandparentThumb": "/library/metadata/1936543/thumb/1485951497",
+	  "grandparentArt": "/library/metadata/1936543/art/1485951497",
+	  "addedAt": 1000396126,
+	  "updatedAt": 1432897518
+	}
+}</textarea>
+	<p>
+		<button type="button" onclick="setEvent('media.play')">Set Play Event</button>
+		<button type="button" onclick="setEvent('media.pause')">Set Pause Event</button>
+		<button type="button" onclick="setEvent('media.resume')">Set Resume Event</button>
+		<button type="button" onclick="setEvent('media.stop')">Set Stop Event</button>
+		<button type="button" onclick="setEvent('media.scrobble')">Set Scrobble Event</button>
+		<button type="button" onclick="setEvent('media.rate')">Set Rate Event</button>
+		<button type="button" onclick="javascript:window.location.reload(false);">Restore Original Event</button>
+   </p>
+   <p>Player Name: <input type="text" id="playerName" value="Living" style="width: 100px" /> <button type="button" onclick="setPlayerName('OBELIX')">Obelix</button> <button type="button" onclick="setPlayerName('Living')">Living</button></p>
+   <p><button type="button" id="payloadSendButton" style="height:40px;width:200px">Send Payload to PlexHue</button></p>
+   <p id="payloadSentSuccess" style="color:green;display:none"><strong>JSON Payload successfully sent to PlexHue</strong></p>
+   <p id="payloadSentFailed" style="color:red;display:none"><strong>JSON Payload NOT successfully sent to PlexHue</strong></p>
+</html>
