@@ -13,7 +13,7 @@ PlexHue and this Documentation is work in progress and is not feature complete y
 * `PlexHue.json` Used by PlexHue.php to store settings. This file shouldn't be edited as it is fully controlled by PlexHue.
 * `PlexHue.log` Used by PlexHue.php for logging to troubleshoot issues.
 * `PlexHue.php` Contains the main logic.
-* `PmsWebhookPayloadEmulator.html` Testing utility to simulate Plex Webhooks.
+* `PmsWebhookPayloadEmulator.html` Standalone testing utility to simulate Plex Webhooks.
 
 ## Installing
 1. Copy "PlexHue.json", "PlexHue.log", "PlexHue.php" to your Webserver.
