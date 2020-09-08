@@ -6,7 +6,7 @@ PlexHue and this Documentation is work in progress and is not feature complete y
 
 ## Prerequisites
 * PHP 5.6 or greater with curl extension
-* Plex Pass (required for using the Webhooks in Plex Media Server)
+* Plex Pass (https://www.plex.tv/plex-pass/) (required for using the Webhooks in Plex Media Server)
 * The Webserver hosting PlexHue must be reachable from Plex Media Server and must be able to reach the Philips Hue Bridge.
 
 ## Files
