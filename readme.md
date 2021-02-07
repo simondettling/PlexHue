@@ -20,7 +20,7 @@ PlexHue is a PHP Application which connects Plex to the Philips Hue Lighting Sys
 	* `HUE_GROUPS` Specify all the Hue Groups/Room in your Home, which you want to control. Currently you need to retrieve the group id directly from the bridge (work in progress).
 	* `HUE_GROUPS_PLAY_RESUME_STATES` Specify the states (configured below), which should apply to the groups when playing or resuming a movie.
 	* `HUE_STATES_SETTINGS` Specify the light states that are used above. By default, this contains a "movie" state, which is a darkened red, as well as a state to turn the lights off.
-3. Open Plex Media Server -> Settings -> Webhooks -> Add Webhook. Define the URL to PlexHue.php
+3. Open `Plex Media Server` -> `Settings` -> `Webhooks` -> `Add Webhook`. Define the URL to PlexHue.php
 4. Everything should be good. You can use "PmsWebhookPayloadEmulator.html" to simulate a Plex Webhook for finetuning your settings, without the need to play/stop a movie every time.
 
 ## Enable / Disable PlexHue via HTTP Request
