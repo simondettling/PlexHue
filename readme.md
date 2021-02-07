@@ -1,9 +1,6 @@
 # PlexHue
 PlexHue is a PHP Application which connects Plex to the Philips Hue Lighting System. As an example, you can trigger a certain light state when starting to watch a movie on a defined player. When pausing or stopping the movie, the lights will resume to the original state.
 
-## IMPORTANT
-PlexHue and this Documentation is work in progress and is not feature complete yet!
-
 ## Prerequisites
 * PHP 7.0 or greater with curl extension.
 * Plex Pass (https://www.plex.tv/plex-pass/) (required for using the Webhooks in Plex Media Server)
