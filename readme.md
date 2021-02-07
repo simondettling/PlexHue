@@ -23,7 +23,7 @@ PlexHue is a PHP Application which connects Plex to the Philips Hue Lighting Sys
 3. Open `Plex Media Server` and go to `Settings` -> `Webhooks` -> `Add Webhook`. Define the URL to PlexHue.php
 4. Everything should be good. You can use "PmsWebhookPayloadEmulator.html" to simulate a Plex Webhook for finetuning your settings, without the need to play/stop a movie every time.
 
-## Enable / Disable PlexHue via HTTP Request
+## Enabling / Disabling PlexHue via HTTP Request
 There are always situations, where you don't like that your lights start dimming while watching a movie. Since version 3.0.0 the option to enable/disable PlexHue can be configured via a simple HTTP Call to the main PlexHue.php Script.
 
 ### Enable
