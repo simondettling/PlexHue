@@ -13,8 +13,8 @@ PlexHue is a PHP Application which connects Plex to the Philips Hue Lighting Sys
 * `PmsWebhookPayloadEmulator.html` Standalone testing utility to simulate Plex Webhooks.
 
 ## Installing
-1. Copy "PlexHue.json", "PlexHue.log", "PlexHue.php" to your Webserver.
-2. Open "PlexHue.php" and modify the below options 
+1. Copy `PlexHue.json`, `PlexHue.log`, `PlexHue.php` to your Webserver.
+2. Open `PlexHue.php` and modify the below options 
 	* `PLEX_PLAYER` Specify the name of the Plex Player. (e.g. Living)
 	* `HUE_API_URL` Specify the Address to your Philips Hue Bridge with a valid API Token.
 	* `HUE_GROUPS` Specify all the Hue Groups/Room in your Home, which you want to control. Currently you need to retrieve the group id directly from the bridge (work in progress).
