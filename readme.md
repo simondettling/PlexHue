@@ -22,3 +22,36 @@ PlexHue is a PHP Application which connects Plex to the Philips Hue Lighting Sys
 	* `$hueStatesSettings` Define the light states that are used above. By default, this contains a "movie" state, which is a darkened red, as well as a state to turn the lights off.
 3. Open Plex Media Server -> Settings -> Webhooks -> Add Webhook. Define the URL to PlexHue.php
 4. Everything should be good. You can use "PmsWebhookPayloadEmulator.html" to simulate a Plex Webhook for finetuning your settings, without the need to play/stop a movie every time.
+
+## Enable / Disable PlexHue via HTTP Request
+There are always situations, where you don't like that your lights start dimming while watching a movie. Since version 3.0.0 the option to enable/disable PlexHue can be configured via a simple HTTP Call to the main PlexHue.php Script.
+
+### Enable PlexHue
+```
+PlexHue.php?SetEnable
+```
+### Disable PlexHue
+```
+PlexHue.php?SetDisable
+```
+### Get Status
+```
+PlexHue.php?GetStatus
+```
+Returns 1 if PlexHue is enabled and 0 if disabled.
+
+### Apple Homekit Integration
+Personally, I use [Homebridge](https://github.com/homebridge/homebridge) with the [Homebridge Http Switch Plugin](https://www.npmjs.com/package/homebridge-http-switch) for quicky enabling and disabling PlexHue. An example utilizing a stateful switch can be found below.
+
+```
+"accessories": [
+	{
+		"accessory": "HTTP-SWITCH",
+		"name": "PlexHue",
+		"switchType": "stateful",
+		"onUrl": "http://server/PlexHue.php?SetEnable",
+		"offUrl": "http://server/PlexHue.php?SetDisable",
+		"statusUrl": "http://server/PlexHue.php?GetStatus"
+	}
+],
+```
