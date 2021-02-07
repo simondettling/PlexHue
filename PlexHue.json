@@ -1,4 +1,5 @@
 {
-    "LastEvent": "media.pause",
-    "LightStates": null
+    "PlexHueEnabled": true,
+    "LightStates": null,
+    "LastEvent": "media.stop"
 }
