@@ -55,3 +55,4 @@ Personally, I use [Homebridge](https://github.com/homebridge/homebridge) with th
 	}
 ],
 ```
+![PlexHue Homekit Switch 1](https://msitproblog.com/wp-content/uploads/2021/02/PlexHue_HomeKit_Switch_1.png) ![PlexHue Homekit Switch 1](https://msitproblog.com/wp-content/uploads/2021/02/PlexHue_HomeKit_Switch_2.png)
