@@ -4,10 +4,13 @@
  *
  * @author		@SimonDettling
  * @copyright	2019-2021 Simon Dettling
- * @version		3.0.0 - 2021-02-07
+ * @version		3.0.1 - 2021-04-11
  *
  *
  * VERSION HISTORY
+ *
+ * 3.0.1 - 2021-04-11
+ * - Added color to turnOff state.
  *
  * 3.0.0 - 2021-02-07
  * - Switched array options from variables to constants. PlexHue now requires PHP 7!
@@ -47,7 +50,7 @@ if (function_exists('opcache_reset')) {
 /*
  * OPTIONS start
  */
-define('PLEXHUE_VERSION', '3.0.0');
+define('PLEXHUE_VERSION', '3.0.1');
 
 define('LOG_ENABLED', true);
 define('LOG_FILE_NAME', 'PlexHue.log');
@@ -99,6 +102,7 @@ define('HUE_STATES_SETTINGS', array(
 	),
 	'turnOff' => array(
 		"on" => false,
+		"xy" => array(0.6445, 0.3059),
 		"transitiontime" => HUE_TRANSITION_TIME,
 	)
 ));
